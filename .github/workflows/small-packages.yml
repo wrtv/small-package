@@ -1,19 +1,17 @@
-name: Sync packages
+name: small-packages
 
 on:
-  push:
-    paths:
-      - '.github/workflows/wall.yml'
-      - '.github/diy/main.sh'
-  schedule:
-    - cron: 0 */8 * * *
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      packages:
-        description: 'packages'
-        required: false
-        default: 'false'	
+  push:
+    paths:
+      - '.github/workflows/small-packages.yml'
+      - 'main.sh'
+  schedule:
+    - cron: 0 */1 * * *
+  watch:
+    types: started
+
 
 jobs:
   build:
@@ -37,12 +35,12 @@ jobs:
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
         sudo timedatectl set-timezone "Asia/Shanghai"
-        
+
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x .github/diy/${{matrix.target}}.sh
-        git clone -b ${{matrix.target}} https://github.com/kenzok8/small-package.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/wrtv/small-package.git ${{matrix.target}}
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
         rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
@@ -61,22 +59,19 @@ jobs:
         if [ -e $GITHUB_WORKSPACE/README.md ]; then
           cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/${{matrix.target}}
         fi
+        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
         cd $GITHUB_WORKSPACE/${{matrix.target}}
         if git status --porcelain | grep .; then
           git add .
-          git commit -am "update $(date '+%Y-%m-%d %H:%M:%S')"
-          git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/kenzok8/small-package.git" HEAD:${{matrix.target}}
+          git commit -am "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} update $(date +%Y-%m-%d" "%H:%M:%S) ${Emoji[$[$RANDOM % ${#Emoji[@]}]]}"
+          git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/wrtv/small-package.git" HEAD:${{matrix.target}}
         else
           echo "nothing to commit"
           exit 0
         fi || exit 0
 
     - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2
       with:
-        token: ${{ github.token }}
-        repository: ${{ github.repository }}
-        retain_days: 1
-        keep_minimum_runs: 1
-
- 
+        retain_days: 0
+        keep_minimum_runs: 3
