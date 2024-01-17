@@ -55,7 +55,7 @@ git clone --depth 1 https://github.com/brvphoenix/luci-app-wrtbwmon wrtbwmon1 &&
 git clone --depth 1 https://github.com/brvphoenix/wrtbwmon wrtbwmon2 && mvdir wrtbwmon2
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
-git clone --depth 1 https://github.com/jerrykuku/luci-app-vssr
+git clone --depth 1 https://github.com/wrtv/luci-app-vssr
 git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode
 git clone --depth 1 https://github.com/jerrykuku/luci-app-go-aliyundrive-webdav
 git clone --depth 1 https://github.com/jerrykuku/lua-maxminddb
@@ -133,11 +133,12 @@ git clone --depth 1 -b master https://github.com/immortalwrt/luci && mv -n luci/
 git clone --depth 1 https://github.com/coolsnowwolf/luci && mv -n luci/libs/luci-lib-ipkg ./ ; rm -rf luci
 git clone --depth 1 -b master https://github.com/x-wrt/packages && mv -n packages/net/nft-qos ./ ; rm -rf packages
 git clone --depth 1 -b master https://github.com/x-wrt/luci && mv -n luci/applications/luci-app-nft-qos ./ ; rm -rf luci
-git clone --depth 1 -b other https://github.com/Lienol/openwrt-package && mv -n openwrt-package/lean/luci-app-autoreboot ./ ; rm -rf openwrt-package
+git clone --depth 1 https://github.com/ZHOUJUNX/luci-app-autoreboot
 git clone --depth 1 https://github.com/Ysurac/openmptcprouter-feeds && mv -n openmptcprouter-feeds/luci-app-iperf ./ ; rm -rf openmptcprouter-feeds
 git clone --depth 1 -b master https://github.com/QiuSimons/OpenWrt-Add && mv -n OpenWrt-Add/luci-app-irqbalance ./ ; rm -rf OpenWrt-Add
-git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package && mv -n sirpdboy-package/luci-app-control-speedlimit ./ ; rm -rf sirpdboy-package
+git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package && mv -n sirpdboy-package/luci-app-control-timewol ./ ; rm -rf sirpdboy-package
 git clone --depth 1 -b openwrt-22.03 https://github.com/openwrt/luci && mv -n luci/applications/luci-app-wireguard ./ ; rm -rf luci
+git clone --depth 1 -b openwrt-23.05 https://github.com/openwrt/luci && mv -n luci/applications/luci-app-watchcat ./ ; rm -rf luci
 git clone --depth 1 https://github.com/lucikap/Brukamen && mv -n Brukamen/luci-app-ua2f ./ ; rm -rf Brukamen
 git clone --depth 1 https://github.com/openwrt/packages && mv -n packages/net/shadowsocks-libev ./ ; rm -rf packages
 git clone --depth 1 https://github.com/kenzok8/jell && mv -n jell/vsftpd-alt ./ ; rm -rf jell
@@ -170,8 +171,6 @@ git_sparse_clone master "https://github.com/x-wrt/com.x-wrt" "x-wrt" natflow lua
 git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/network/utils/nftables \
 package/network/utils/fullconenat package/network/utils/fullconenat-nft \
 package/utils/mhz package/libs/libnftnl package/firmware/wireless-regdb
-
-git_sparse_clone openwrt-23.05 "https://github.com/openwrt/luci" "opluci" applications/luci-app-watchcat \
 
 #mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 rm -rf openssl
