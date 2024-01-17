@@ -16,7 +16,6 @@ function mvdir() {
 mv -n `find $1/* -maxdepth 0 -type d` ./
 rm -rf $1
 }
-#git clone --depth 1 https://github.com/kenzo78/my-packages && mvdir my-packages
 git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter
 git clone --depth 1 https://github.com/kiddin9/aria2
 git clone --depth 1 https://github.com/kiddin9/luci-app-baidupcs-web
@@ -58,7 +57,6 @@ git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 https://github.com/jerrykuku/luci-app-vssr
 git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode
-#git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus
 git clone --depth 1 https://github.com/jerrykuku/luci-app-go-aliyundrive-webdav
 git clone --depth 1 https://github.com/jerrykuku/lua-maxminddb
 git clone --depth 1 https://github.com/sirpdboy/luci-app-advanced
@@ -118,7 +116,6 @@ git clone --depth 1 https://github.com/messense/aliyundrive-webdav aliyundrive &
 git clone --depth 1 https://github.com/messense/aliyundrive-fuse aliyundrive && mv -n aliyundrive/openwrt/* ./;rm -rf aliyundrive
 git clone --depth 1 https://github.com/kenzok8/litte && mv -n litte/luci-theme-atmaterial_new litte/luci-theme-tomato ./ ; rm -rf litte
 git clone https://github.com/XiaoliChan/helloworld -b main && rm -rf helloworld/v2raya && mvdir helloworld
-#git clone --depth 1 https://github.com/QiuSimons/openwrt-mos && mv -n openwrt-mos/luci-app-mosdns ./ ; rm -rf openwrt-mos
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns openwrt-mos && mv -n openwrt-mos/{*mosdns,v2dat} ./; rm -rf openwrt-mos
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall passwall1 && mv -n passwall1/luci-app-passwall  ./; rm -rf passwall1
@@ -132,20 +129,19 @@ git clone --depth 1 https://github.com/doushang/luci-app-shortcutmenu luci-short
 git clone --depth 1 https://github.com/sbilly/netmaker-openwrt && mv -n netmaker-openwrt/netmaker ./; rm -rf netmaker-openwrt
 git clone --depth 1 https://github.com/coolsnowwolf/packages && mv -n packages/multimedia/UnblockNeteaseMusic-Go packages/net/msd_lite ./ ; rm -rf packages
 
-svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-homeproxy
-svn export https://github.com/coolsnowwolf/luci/trunk/libs/luci-lib-ipkg
-svn export https://github.com/x-wrt/packages/trunk/net/nft-qos
-svn export https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos
-svn export https://github.com/Lienol/openwrt-package/branches/other/lean/luci-app-autoreboot
-svn export https://github.com/Ysurac/openmptcprouter-feeds/trunk/luci-app-iperf
-svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-irqbalance
-svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-speedlimit
-#svn export https://github.com/xiaoxifu64/immortalwrt/trunk/package/rooter/ext-rooter-basic
-svn export https://github.com/openwrt/luci/branches/openwrt-22.03/applications/luci-app-wireguard
-svn export https://github.com/lucikap/Brukamen/trunk/luci-app-ua2f
-svn export https://github.com/openwrt/packages/trunk/net/shadowsocks-libev
-svn export https://github.com/kenzok8/jell/trunk/vsftpd-alt
-svn export https://github.com/kenzok8/jell/trunk/luci-app-bridge
+git clone --depth 1 -b master https://github.com/immortalwrt/luci && mv -n luci/applications/luci-app-homeproxy ./ ; rm -rf luci
+git clone --depth 1 https://github.com/coolsnowwolf/luci && mv -n luci/libs/luci-lib-ipkg ./ ; rm -rf luci
+git clone --depth 1 -b master https://github.com/x-wrt/packages && mv -n packages/net/nft-qos ./ ; rm -rf packages
+git clone --depth 1 -b master https://github.com/x-wrt/luci && mv -n luci/applications/luci-app-nft-qos ./ ; rm -rf luci
+git clone --depth 1 -b other https://github.com/Lienol/openwrt-package && mv -n openwrt-package/lean/luci-app-autoreboot ./ ; rm -rf openwrt-package
+git clone --depth 1 https://github.com/Ysurac/openmptcprouter-feeds && mv -n openmptcprouter-feeds/luci-app-iperf ./ ; rm -rf openmptcprouter-feeds
+git clone --depth 1 -b master https://github.com/QiuSimons/OpenWrt-Add && mv -n OpenWrt-Add/luci-app-irqbalance ./ ; rm -rf OpenWrt-Add
+git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package && mv -n sirpdboy-package/luci-app-control-speedlimit ./ ; rm -rf sirpdboy-package
+git clone --depth 1 -b openwrt-22.03 https://github.com/openwrt/luci && mv -n luci/applications/luci-app-wireguard ./ ; rm -rf luci
+git clone --depth 1 https://github.com/lucikap/Brukamen && mv -n Brukamen/luci-app-ua2f ./ ; rm -rf Brukamen
+git clone --depth 1 https://github.com/openwrt/packages && mv -n packages/net/shadowsocks-libev ./ ; rm -rf packages
+git clone --depth 1 https://github.com/kenzok8/jell && mv -n jell/vsftpd-alt ./ ; rm -rf jell
+git clone --depth 1 https://github.com/kenzok8/jell && mv -n jell/luci-app-bridge ./ ; rm -rf jell
 
 git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpack" net/miniupnpd net/mwan3 \
 net/amule net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
