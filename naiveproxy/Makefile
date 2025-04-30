@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=naiveproxy
-PKG_VERSION:=135.0.7049.38-2
+PKG_VERSION:=136.0.7103.44-1
 PKG_RELEASE:=1
 
 # intel 80386 & riscv64 & cortex-a76
@@ -32,13 +32,13 @@ else ifeq ($(ARCH_PACKAGES),arm_arm926ej-s)
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a15_neon-vfpv4)
   PKG_HASH:=d0560697e7457bbd10e5e08421c49d554c8e4b6ca1f522a467093a791f9bee17
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a5_vfpv4)
-  PKG_HASH:=8e1caa8f57c954942fbf37cb237392b59ca966f261d697d7ba08be313da4501b
+  PKG_HASH:=0302503e6270ec48427f13816b6608eb80241598256692a2911c9f52057153ca
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a7)
   PKG_HASH:=3facbd55aa8c29727ae1ade020e879eb39cd8c58d87cb4055ce228349b15a2c9
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a7_neon-vfpv4)
   PKG_HASH:=cb7d2c068419b4f0ce301cd905fa20e28496c8ed96376b9104803623e580f570
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a7_vfpv4)
-  PKG_HASH:=8675b1b6faef33386a074dcb37321ad85b465e596afcd3a9a8e56933b9490d82
+  PKG_HASH:=3b734e692a6ae2b17e53a10775bb3f23a89b15724b745b7b0d78f738f5cab9b4
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a8_vfpv3)
   PKG_HASH:=52183593d9b405bf1dd007f103cb3e1e63d48fe1bb614d369204febc1d6cb259
 else ifeq ($(ARCH_PACKAGES),arm_cortex-a9)
@@ -52,13 +52,13 @@ else ifeq ($(ARCH_PACKAGES),arm_mpcore)
 else ifeq ($(ARCH_PACKAGES),arm_xscale)
   PKG_HASH:=e31d7b7b8e0e063e33d8208c3ca1f7c0588030dcabe1df28e4959a4968707520
 else ifeq ($(ARCH_PACKAGES),mipsel_24kc)
-  PKG_HASH:=db1eee25bc417f5785a9a537aee1503f4f6bffb6effcbbe202ed73576ee20ed5
+  PKG_HASH:=f01eb9a10300ac6f7d5cd9759a9a47980a9c9c8c5868e25b705c63e711706032
 else ifeq ($(ARCH_PACKAGES),mipsel_mips32)
   PKG_HASH:=4deae82fed26d9455cbeff2f12093e6037f3f993fbbc449446bfda16e49c869b
 else ifeq ($(ARCH_PACKAGES),riscv64)
   PKG_HASH:=973930d0abda895d1414a611f9bea70a1a35c1b9965fc9062f2bb0900cbcd617
 else ifeq ($(ARCH_PACKAGES),x86)
-  PKG_HASH:=574dfa733c671d7d3125f53cf01f3f52d758a49cafc8df0e216e5ad5b501a149
+  PKG_HASH:=7e90b9c94751c17c674a5da0a7cfd7ab28bc6657e5a698e3f7e60ec6d3ae2858
 else ifeq ($(ARCH_PACKAGES),x86_64)
   PKG_HASH:=8fabab9496f947f90d2a4b72379069d53c132cdb14a092898c628ed0e7879d4a
 else
